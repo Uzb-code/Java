@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generator</title>
+    <style>
+       
+        .container{
+            background-color: rgb(255, 0, 0);
+            height: 400px;
+            width: 50%;
+            border-radius: 20px;
+           margin-left: 25%;
+           margin-right: 25%;
+           margin-top: 200px;
+           padding-inline-start: 50px;
+        }
+        .span{
+            display:inline-block;
+            margin-bottom: 200px !important;
+            height: 250px;
+        }
+        .span2{
+            display: inline-block;
+            margin: 30px;
+            border: 1px solid black;
+            border-radius: 20px;
+
+
+        }
+        label{
+            margin-top: 10px;
+        }
+        .span3{
+            display: inline-block;
+            margin-top: 50px;
+            width: 250px;
+        }
+        .button{
+            background-image: linear-gradient(aqua,rgb(2, 92, 228),blue);
+            width: 400px;
+            height: 50px;
+            border-radius: 20px;
+            margin-top: 50px;
+        }
+        input{
+            border-radius: 15px;
+            height: 30px;
+            width: 50px;
+        }
+        .span5{
+            margin-bottom:100px;
+        }
+        h1{
+            text-align: center;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+      <span class="span">
+     <span class="span5">
+        <h4>
+            HTML & CSS & JAVASRIPT
+        </h4>
+        <h1>
+            Tasodifiy <br> sonlar <br> generatori
+        </h1>
+     </span>
+      </span>
+       <span class="span2">
+      <span class="span3">
+        <label for="min">MIN</label>
+        <input type="number" id="min"><br>
+      </span><br>
+       <span class="span3">
+        <label  for="max">MAX</label>
+        <input type="number" id="max"><br>
+       </span><br>
+       <span class="span4" >
+        <button class="button" id="generate" type="button">Ishga tushirish</button>
+       </span>
+        <h1 id="placeholder">
+            0
+        </h1>
+      </span>
+</div>
+    <script>
+        
+const getRandomNumber = (min,max) =>{
+    return Math.floor( Math.random() * (max - min +1)) + min;
+}
+const generate = () =>{
+    const minEl = document.getElementById('min')
+    const maxEl = document.getElementById('max')
+    const min = Number(minEl.value);
+    const max = Number(maxEl.value);
+
+    if (minEl.value === '' || maxEl.value === '' ){
+        alert('iltimos min va max qiymatlarni kiriting!');
+        return;
+    }
+    if (min > max){
+        alert("min maxdan kichik bo'lishi kerak1");
+        return;
+    }
+ const placeholderEl = document.querySelector('#placeholder');
+ placeholderEl.textContent = getRandomNumber(min,max); 
+}
+const bntEl = document.getElementById('generate')
+bntEl.addEventListener('click', generate)
+    </script>
+</body>
+</html>
